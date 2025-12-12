@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Responsive Page with Animation & Birthday Popup</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+  body { background: #f5f7fa; }
+h2{
+    font-size: 20px;
+}
+  /* Header */
+  header {
+    width: 100%;
+    background: #0b6efd;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  /* Floating animated blob */
+  .blob {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+    border-radius: 50%;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 4s infinite ease-in-out alternate;
+    filter: blur(1px);
+  }
+
+  @keyframes float {
+    0% { transform: translate(-50%, 0); }
+    100% { transform: translate(-50%, -30px); }
+  }
+
+  /* Button */
+  .main-btn {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    background: #0b6efd;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  }
+
+  .main-btn:hover {
+    background: #084fc7;
+    transform: translateX(-50%) scale(1.07);
+  }
+
+  /* Popup */
+  #popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+
+  #popupContent {
+    background: white;
+    padding: 25px;
+    width: 80%;
+    max-width: 350px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  #closeBtn {
+    margin-top: 20px;
+    background: #0b6efd;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  /* Responsive */
+  @media(max-width: 600px) {
+    .blob { width: 150px; height: 150px; top: 100px; }
+    .main-btn { top: 170px; font-size: 1rem; padding: 12px 20px; }
+  }
+  .msg{
+    font-family: serif; 
+    font-size: 14px;
+  }
+  .p{
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: bolder;
+  }
+</style>
+</head>
+<body>
+
+<header id="header">Birthday Suprise from Sadiq</header>
+
+<div class="blob"></div>
+<button class="main-btn" id="birthdayBtn">Tap Me 🎉</button>
+
+<!-- Birthday Popup -->
+<div id="popup">
+  <div id="popupContent">
+    <h2 >🎂 Happy Birthday! Naima🎉</h2>
+    <p class="p">Wishing you joy, happiness, and amazing memories!</p>
+    <p class="msg">May your heart be overflowing with joy today and every day that follows. 💖🌈 You truly deserve every beautiful moment life has to offer, and I hope this new chapter brings you endless blessings, happiness, and unforgettable memories. 🌟May your days be filled with laughter 🤗, your nights filled with peace 🌙, and your life filled with love, success, and everything that makes your soul smile. 💫💐
+<br> <br>
+Celebrate yourself today—you’re special, appreciated, and cherished more than you know. 🎁❤️
+Wishing you a magical birthday and a year as wonderful as you are! 🎉🥳✨</p>
+    <br><br>
+<span>@Sadiq Care😎</span>
+
+<br><button id="closeBtn">Close</button>
+  </div>
+</div>
+
+<script>
+  // Show popup when button is tapped
+  const btn = document.getElementById('birthdayBtn');
+  const popup = document.getElementById('popup');
+  const closeBtn = document.getElementById('closeBtn');
+const header = document.getElementById("header");
+header.style.display="none"  
+btn.onclick = () => {
+    popup.style.display = 'flex';
+header.style.display="block"  
+
+  };
+
+  closeBtn.onclick = () => {
+    popup.style.display = 'none';
+  };
+</script>
+
+</body>
+</html>
